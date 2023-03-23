@@ -1,0 +1,49 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/AzarMehr-Black.ttf",
+      "sha1": "9957940dbad6021e0b968f1f3ab5da7f3398add2"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-Bold.ttf",
+      "sha1": "a6a55e5fb9ebb5cd8a8a6ec7dfe2c47581917517"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-ExtraBold.ttf",
+      "sha1": "ad716eb1128f58e9cc5be41a431e2ede5946cdb3"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-ExtraLight.ttf",
+      "sha1": "c939f8b9458f4a12711c3781e81394d64a63f5bb"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-Light.ttf",
+      "sha1": "cc9425bb1c13e8c0439d944a08a727d60d8fc0e2"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-Medium.ttf",
+      "sha1": "bc5f6a4a085b926062796c0f3992deddaf2c996c"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-Mono-Bold.ttf",
+      "sha1": "649ab6223aae62ad895986944c3daa8b24589cab"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-Mono-Regular.ttf",
+      "sha1": "af3a4c288ddebd5b058f0ed7e494013180c816ce"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-Regular.ttf",
+      "sha1": "b82d84902fc8e39f81d05fb719d75d793d042a9b"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-SemiBold.ttf",
+      "sha1": "c4432fb924f17f0f4e236518e115ca7e2f7ae2f7"
+    },
+    {
+      "path": "assets/fonts/AzarMehr-Thin.ttf",
+      "sha1": "398318e43274cef416aa5a3dfa11cb0ef6c8a67c"
+    }
+  ]
+}
