@@ -1,89 +1,94 @@
 import { Button, Image, ImageBackground, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Background from '../../../resources/images/backgrounds/registrationBackground.png'
-import Login from '../../../resources/images/icons/login.png'
-import LogoText from '../../../resources/images/icons/logotext.png'
 import LinearGradient from "react-native-linear-gradient";
+import { IconClose, IconMobile } from "../../Tools/Icons";
+import { sameSize } from "../../Tools/Functions";
 
-export default () => {
+export default ({navigation}) => {
+
   const Styles = StyleSheet.create({
     root:{
       flex:1,
     },
     linearGradient: {
       flex: 1,
-      paddingLeft: 15,
-      paddingRight: 15,
-      borderRadius: 5
+      paddingLeft: sameSize(15),
+      paddingRight: sameSize(15),
     },
     background:{
       flex:1,
       flexDirection:"column",
       justifyContent:"space-between",
-      paddingTop:90,
-      paddingBottom:80
+      paddingTop:sameSize(30),
+      paddingBottom:sameSize(15)
+    },
+    closeView:{
+      alignItems:'flex-end',
+      width:'100%',
+      height:sameSize(20)
     },
     logoCon:{
       justifyContent:'center',
       alignItems:'center'
     },
     slogan:{
-      fontSize:20,
-      fontFamily:'AzarMehr-Medium',
+      fontSize:17,
+      fontFamily:'AzarMehr-Regular',
       color:'#fff',
-      lineHeight:30,
-      paddingTop:25
+      paddingTop:sameSize(10)
     },
     buttonsCon:{
-      height:200,
-      paddingRight:80,
-      paddingLeft:80
+      height:sameSize(200),
+      paddingRight:sameSize(20),
+      paddingLeft:sameSize(20),
+      justifyContent:'flex-end'
     },
     signIn:{
       backgroundColor:'#fff',
-      padding:15,
+      padding:sameSize(10),
       borderRadius:50
-
     },
     signInText:{
       color:'#000',
       textAlign:"center",
-      fontSize:20,
-      fontFamily:'AzarMehr-Light',
+      fontSize:17,
+      fontFamily:'AzarMehr-Medium',
     },
     signUp:{
       borderColor:'#fff',
       borderStyle:'solid',
       borderWidth:2,
-      padding:10,
+      padding:sameSize(8),
       borderRadius:50,
       flexDirection:'row',
       width:'100%',
       justifyContent:'center',
       alignItems:'center',
-      gap:15,
-      paddingRight:70,
-      marginTop:15
+      marginTop:sameSize(15)
     },
     signUpText:{
       color:'#fff',
       textAlign:"center",
-      fontSize:20,
-      fontFamily:'AzarMehr-Light',
-      paddingBottom:4
+      fontSize:17,
+      fontFamily:'AzarMehr-Medium'
     },
     signUpImage:{
-      width:40,
-      height:40
+      width:sameSize(25),
+      height:sameSize(25)
     },
 
   });
 
   const signUp = () => {
-
+    navigation.navigate('SignUp' );
   }
 
   const signIn = () => {
+    navigation.navigate('SignIn')
+  }
 
+  const closeRegistration = () => {
+    // navigation.navigate('SignUp')
   }
 
   return(
@@ -93,7 +98,12 @@ export default () => {
         style={Styles.linearGradient}>
         <ImageBackground resizeMode='contain' style={Styles.background} source={Background} >
           <View style={Styles.logoCon}>
-            <Image source={LogoText} />
+            <View style={Styles.closeView}>
+              <TouchableOpacity onPress={closeRegistration}>
+                <IconClose width={45} height={45} color='#fff'/>
+              </TouchableOpacity>
+            </View>
+            <IconMobile color='#fff'  width={sameSize(200)} height={sameSize(60) }/>
             <Text style={Styles.slogan}>
               کلی محصول شیک رو ببین
               {'\n'}
@@ -105,7 +115,6 @@ export default () => {
               <Text style={Styles.signInText}>ثبت‌نام با ایمیل</Text>
             </TouchableOpacity>
             <TouchableOpacity style={Styles.signUp} onPress={signUp} >
-              <Image style={Styles.signUpImage} source={Login}/>
               <Text style={Styles.signUpText}>ورود با ایمیل</Text>
             </TouchableOpacity>
           </View>

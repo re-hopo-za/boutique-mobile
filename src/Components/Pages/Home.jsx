@@ -4,7 +4,7 @@ import { changeSchema ,colorSchemaSlice } from "../Tools/colorSchemaSlice";
 import {
   Button,
   StyleSheet,
-  Text, useColorScheme,
+  Text,
   View,
 } from "react-native";
 import { useEffect, useState } from "react";
