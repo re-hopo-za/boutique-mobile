@@ -4,18 +4,23 @@ import {
   View,
 } from "react-native";
 import Header from "../Layouts/Header";
+import { sameSize } from "../Tools/Functions";
+import Search from "../Sections/Search";
+import MainCarousel from "../Sections/MainCarousel";
+import Categories from "../Sections/Categories";
 
 
 
-export default () =>  {
+export default ({navigation}) =>  {
 
 
 
 
   const styles = StyleSheet.create({
-    homePage: {
-      marginTop: 32,
-      paddingHorizontal: 24,
+    root: {
+      backgroundColor:'#F6F9FC',
+      flex:1,
+      paddingTop:sameSize(30)
     },
 
   });
@@ -23,8 +28,11 @@ export default () =>  {
 
 
   return (
-    <View style={styles.homePage}>
+    <View style={styles.root}>
       <Header/>
+      <Search/>
+      <MainCarousel/>
+      <Categories />
     </View>
   );
 }

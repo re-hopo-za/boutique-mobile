@@ -80,17 +80,11 @@ export const profileSlice = createSlice({
   reducers: {},
   extraReducers:(builder) => {
     builder
-      // .addCase(getUserProfile.pending, (state, action) => {
-      //   state.status = "loading"
-      // })
       .addCase(getUserProfile.fulfilled, (state, action) => {
         state.status = "succeeded"
         state.profile = action.payload;
       })
-      // .addCase(getUserProfile.rejected, (state, action) => {
-      //   state.status = "failed"
-      //   state.error = action.error.message
-      // })
+
   }
 })
 

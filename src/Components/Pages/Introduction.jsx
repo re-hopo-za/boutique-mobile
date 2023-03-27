@@ -83,6 +83,11 @@ export default ({navigation}) =>  {
       fontSize:15,
       color:'#fff'
     },
+    carouselView:{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems:'center'
+    },
     carouselImage:{
       flex:1,
       width:'100%'
@@ -103,13 +108,7 @@ export default ({navigation}) =>  {
             onSnapToItem={(index) => setActiveSlide(index)}
             scrollAnimationDuration={1000}
             renderItem={( { index } ) => (
-              <View
-                style={{
-                  flex: 1,
-                  justifyContent: 'center',
-                  alignItems:'center'
-                }}
-              >
+              <View style={Styles.carouselView} >
                 <Image style={Styles.carouselImage} source={items[index].src} />
               </View>
             )}

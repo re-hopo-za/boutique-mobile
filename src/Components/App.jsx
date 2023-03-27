@@ -1,7 +1,7 @@
 import {
   SafeAreaView,
   ScrollView,
-  StatusBar, View ,Text,
+  StatusBar,
 } from "react-native";
 
 
@@ -16,6 +16,7 @@ import Verification from "./Pages/Registration/Verification";
 import Home from "./Pages/Home";
 import Introduction from "./Pages/Introduction";
 import SplashScreen from './Pages/SplashScreen'
+
 
 
 

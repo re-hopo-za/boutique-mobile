@@ -12,20 +12,21 @@ export default () =>  {
 
 
 
-  const styles = StyleSheet.create({
+  const Styles = StyleSheet.create({
     root: {
-      flexDirection:'column',
+      flexDirection:'row',
       justifyContent:'space-between',
       alignItems:'center',
-      paddingHorizontal:sameSize(15),
+      paddingHorizontal:sameSize(20),
+      paddingVertical:sameSize(10),
     },
   });
 
 
   return (
-    <View style={styles.root}>
-      <IconMenu/>
-      <IconCart/>
+    <View style={Styles.root}>
+      <IconMenu width={sameSize(30)} height={sameSize(30)} />
+      <IconCart width={sameSize(30)} height={sameSize(30)} />
     </View>
   );
 }
