@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 
-import { IconBackArrow, IconExclamation, IconMobile } from "../../Tools/Icons";
+import { IconBackArrow, IconExclamation, IconMobile, Logo } from "../../Tools/Icons";
 import { Formik } from "formik";
 import * as Yup from 'yup';
 import { heightScale, sameSize } from "../../Tools/Functions";
@@ -63,7 +63,7 @@ export default ({navigation}) => {
       marginTop:sameSize(15),
     },
     submit:{
-      backgroundColor:'#2967FF',
+      backgroundColor:'#455CC7',
       height:sameSize(47),
       borderRadius:sameSize(7),
       marginTop:sameSize(20)
@@ -86,7 +86,7 @@ export default ({navigation}) => {
       padding:sameSize(30),
     },
     loginButton:{
-      backgroundColor:'#dfeaff',
+      backgroundColor:'#DCE0F9',
       borderRadius:sameSize(7),
       height:sameSize(47),
     },
@@ -99,7 +99,7 @@ export default ({navigation}) => {
       verticalAlign:'middle'
     },
     forgetPassword:{
-      color:'#2967FF',
+      color:'#455CC7',
       textAlign:'center',
       marginTop:sameSize(19),
       fontSize:17,
@@ -116,6 +116,11 @@ export default ({navigation}) => {
   const back = () => {
     navigation.goBack();
   }
+
+  const SignIn = () => {
+    navigation.navigate('SignIn');
+  }
+
 
 
   const SignupSchema = Yup.object().shape({
@@ -139,7 +144,7 @@ export default ({navigation}) => {
         </View>
         <View>
           <View style={[Styles.logoView, Styles.elevation]} >
-            <IconMobile color='#000000' width={sameSize(120)} />
+            <Logo color='#455CC7' width={sameSize(200)} height={sameSize(60) }/>
           </View>
           <Formik
             validateOnChange={false}
@@ -186,7 +191,7 @@ export default ({navigation}) => {
         </View>
 
         <View style={Styles.bottomView}>
-          <Pressable style={Styles.loginButton}>
+          <Pressable style={Styles.loginButton} onPress={SignIn}>
             <Text style={Styles.loginText}>ثبت نام</Text>
           </Pressable>
         </View>

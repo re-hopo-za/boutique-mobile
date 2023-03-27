@@ -1,4 +1,4 @@
-import Svg, { Circle, Defs, G, Path } from "react-native-svg";
+import Svg, { Circle, Defs, G, Path, Rect } from "react-native-svg";
 
 
 export const IconBackArrow = ({color ,width ,height }) =>{
@@ -34,7 +34,7 @@ export const IconExclamation = ({color ,width ,height }) =>{
 }
 
 
-export const IconMobile = ({color ,width ,height }) =>{
+export const Logo = ({color ,width ,height }) =>{
   return (
     <Svg height={height} width={width} viewBox="0 0 79 39 ">
       <G fill={color}>
@@ -49,7 +49,7 @@ export const IconMobile = ({color ,width ,height }) =>{
 }
 
 
-export const Logo = ({color ,width ,height }) =>{
+export const IconMobile = ({color ,width ,height }) =>{
   return (
     <Svg height={width} width={height} viewBox="0 0 308.75 512">
 
@@ -85,6 +85,39 @@ export const IconClose = ({color ,width ,height ,style }) =>{
   return (
     <Svg height={width} width={height} viewBox="0 0 20 20">
        <Path fill={color} d="M16.233,15.289l2.857-2.858a.67.67,0,1,0-.947-.947l-2.857,2.858-2.857-2.858a.67.67,0,1,0-.947.947l2.857,2.858-2.857,2.858a.67.67,0,0,0,.947.947l2.857-2.858,2.857,2.858a.67.67,0,0,0,.947-.947Z" transform="translate(-11.285 -11.289)"/>
+    </Svg>
+  )
+}
+
+
+export const IconMenu = ({color  }) =>{
+  return (
+    <Svg width="19" height="16.5" viewBox="0 0 19 16.5">
+      <G transform="translate(-32 -55)">
+        <Rect width="16" height="2.5" rx="1.25" transform="translate(32 55)" fill="#424242"/>
+        <Rect width="19" height="2.5" rx="1.25" transform="translate(32 62)" fill="#455cc7"/>
+        <Rect width="10" height="2.5" rx="1.25" transform="translate(32 69)" fill="#424242"/>
+      </G>
+    </Svg>
+  )
+}
+
+export const IconCart = ({color  }) =>{
+  return (
+    <Svg width="19" height="20" viewBox="0 0 19 20">
+      <G transform="translate(-325 -52)">
+        <G transform="translate(23 11)">
+          <G transform="translate(306 42)" fill="none">
+            <Path d="M3.5,0A3.5,3.5,0,0,1,7,3.5v3H0v-3A3.5,3.5,0,0,1,3.5,0Z" stroke="none"/>
+            <Path d="M 3.5 2 C 2.672900199890137 2 2 2.672899961471558 2 3.5 L 2 4.5 L 5 4.5 L 5 3.5 C 5 2.672899961471558 4.327099800109863 2 3.5 2 M 3.5 0 C 5.433000087738037 0 7 1.566999912261963 7 3.5 L 7 6.5 C 5.221739768981934 6.5 5.25 6.5 3.5 6.5 C 1.75 6.5 2.319389820098877 6.5 0 6.5 L 0 3.5 C 0 1.566999912261963 1.566999912261963 0 3.5 0 Z" stroke="none" fill="#414442"/>
+          </G>
+          <G transform="translate(302 47)" fill="none" stroke="#414442" stroke-width="2">
+            <Path width="15" height="14" rx="3" stroke="none"/>
+            <Path x="1" y="1" width="13" height="12" rx="2" fill="none"/>
+          </G>
+        </G>
+        <Circle cx="2.5" cy="2.5" r="2.5" transform="translate(339 52)" fill="#455cc7"/>
+      </G>
     </Svg>
   )
 }

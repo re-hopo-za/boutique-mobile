@@ -9,18 +9,18 @@ import {
 import Carousel from "react-native-reanimated-carousel/src/Carousel";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { sameSize, windowWidth } from "../Tools/Functions";
-import { IconBackArrow } from "../Tools/Icons";
 import { useState } from "react";
 import Svg, { Circle, Path } from "react-native-svg";
-
-
 import yellow from '../../resources/images/temporary/yellow.png'
 import orange from '../../resources/images/temporary/orange.png'
 import blue from '../../resources/images/temporary/blue.jpg'
+import { updateUserProfile } from "../States/profileSlice";
+import { useDispatch } from "react-redux";
 
 
-export default () =>  {
+export default ({navigation}) =>  {
 
+  const dispatch = useDispatch();
   const [activeSlide ,setActiveSlide] = useState(0);
 
   const items = [
@@ -28,20 +28,20 @@ export default () =>  {
     { name:'ba' ,src:orange },
     { name:'ta' ,src:blue }
   ];
-
-  const colors = ['#FFDD51' ,'#fec552' ,'#eae3d3'];
-
-  const handleDots = (index) =>{
-    console.log(index);
+  const startShop = () => {
+    dispatch(
+      updateUserProfile( {key: 'introductionStatus' ,value:false } )
+    );
+    navigation.navigate('Home')
   }
+
 
   const Styles = StyleSheet.create({
     root: {
       flex:1,
-      backgroundColor:colors[activeSlide]
     },
     iconView:{
-      paddingTop:sameSize(15),
+      paddingTop:sameSize(30),
       paddingHorizontal:sameSize(25),
       position:'absolute',
       top:0,
@@ -116,7 +116,6 @@ export default () =>  {
           />
         </GestureHandlerRootView>
         <View style={Styles.iconView} >
-          <IconBackArrow color='#000' width="30" height="22" />
           <Text style={Styles.iconText}>
             جستجوی راحت و یافتن
             {'\n'}
@@ -131,7 +130,7 @@ export default () =>  {
           </View>
         </View>
         <View style={Styles.startView}>
-          <Pressable style={Styles.startButton}>
+          <Pressable style={Styles.startButton} onPress={startShop}>
             <Text style={Styles.startText}>شروع خرید </Text>
           </Pressable>
         </View>

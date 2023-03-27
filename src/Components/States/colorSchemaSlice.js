@@ -36,8 +36,4 @@ export const colorSchemaSlice = (state) => state.colorSchema;
 export const {changeSchema} = schemaSlice.actions;
 export default schemaSlice.reducer;
 
-// export default () => {
-//   const colorScheme = useColorScheme()
-//   return Colors[colorScheme] ?? Colors['light'];
-// }
 

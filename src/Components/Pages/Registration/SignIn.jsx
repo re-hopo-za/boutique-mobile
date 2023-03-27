@@ -32,19 +32,6 @@ export default ({navigation}) => {
       paddingLeft:sameSize(20),
       paddingRight:sameSize(20)
     },
-    logoView:{
-      margin:sameSize(30),
-      shadowColor: '#171717',
-      shadowOffset: {width: -2, height: 4},
-      shadowOpacity: 0.2,
-      shadowRadius: 3,
-      width:'50%',
-      alignSelf:'center'
-    },
-    elevation: {
-      elevation: 20,
-      shadowColor: '#52006A',
-    },
     form:{
       paddingRight:sameSize(30),
       paddingLeft:sameSize(30),
@@ -69,7 +56,7 @@ export default ({navigation}) => {
       marginTop:sameSize(15),
     },
     submit:{
-      backgroundColor:'#2967FF',
+      backgroundColor:'#455CC7',
       height:sameSize(47),
       borderRadius:sameSize(7),
       marginTop:sameSize(20)
@@ -89,7 +76,7 @@ export default ({navigation}) => {
       marginTop:10
     },
     conditionText:{
-      color:'#555',
+      color:'#333',
       fontFamily:'AzarMehr-Medium',
       fontSize:16,
       textAlign:"center",
@@ -106,7 +93,7 @@ export default ({navigation}) => {
       padding:sameSize(30),
     },
     loginButton:{
-      backgroundColor:'#dfeaff',
+      backgroundColor:'#DCE0F9',
       borderRadius:sameSize(7),
       height:sameSize(47),
     },
@@ -132,6 +119,10 @@ export default ({navigation}) => {
     navigation.goBack();
   }
 
+  const SignUp = () => {
+    navigation.navigate('SignUp');
+  }
+
 
 
   const SignupSchema = Yup.object().shape({
@@ -152,13 +143,13 @@ export default ({navigation}) => {
 
   return(
       <View style={Styles.root} >
-        <View style={Styles.headerView}>
-          <TouchableOpacity  onPress={back}>
-            <IconBackArrow color='#000' width={heightScale(20)} height={heightScale(20)}/>
-          </TouchableOpacity>
-          <IconExclamation color='#000' width={heightScale(20)} height={heightScale(20)}/>
-        </View>
         <View>
+          <View style={Styles.headerView}>
+            <TouchableOpacity  onPress={back}>
+              <IconBackArrow color='#000' width={heightScale(20)} height={heightScale(20)}/>
+            </TouchableOpacity>
+            <IconExclamation color='#000' width={heightScale(20)} height={heightScale(20)}/>
+          </View>
           <Formik
             validateOnChange={false}
             validateOnBlur={false}
@@ -233,7 +224,7 @@ export default ({navigation}) => {
         </View>
 
         <View style={Styles.bottomView}>
-          <Pressable style={Styles.loginButton}>
+          <Pressable style={Styles.loginButton} onPress={SignUp}>
             <Text style={Styles.loginText}>ورود</Text>
           </Pressable>
         </View>

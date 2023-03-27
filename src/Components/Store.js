@@ -1,10 +1,12 @@
 
 
 import {configureStore} from "@reduxjs/toolkit";
-import colorSchemaReducer from './Tools/colorSchemaSlice';
+import colorSchemaReducer from './States/colorSchemaSlice';
+import profileReducer from './States/profileSlice';
 
 export const store = configureStore({
   reducer:{
-    colorSchema : colorSchemaReducer
+    colorSchema : colorSchemaReducer,
+    profile : profileReducer,
   }
 })
