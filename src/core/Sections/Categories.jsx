@@ -7,6 +7,7 @@ import {
 import { IconArrowLeft, IconChild, IconKids, IconMan, IconWoman } from "../Tools/Icons";
 import { sameSize } from "../Tools/Functions";
 import { useState } from "react";
+import ShowAll from "../Components/ShowAll";
 
 
 
@@ -16,18 +17,9 @@ export default () =>  {
   const [active ,setActive] = useState( 0 );
 
 
-
   return (
     <View style={Styles.root}>
-      <View style={Styles.titleView}>
-        <View style={Styles.titleIconView}>
-          <IconArrowLeft color='#9D9D9D' width={sameSize(25)} height={sameSize(20) }/>
-          <Text style={Styles.allCat}> نمایش همه</Text>
-        </View>
-        <TouchableOpacity>
-          <Text style={Styles.titleText}> دسته بندی‌ها</Text>
-        </TouchableOpacity>
-      </View>
+      <ShowAll title='دسته بندی‌ها' />
 
       <View style={Styles.categoriesView}>
         <TouchableOpacity style={ active === 0 ? Styles.categoryItemActive : Styles.categoryItem} onPress={()=>setActive(0)}>
@@ -41,7 +33,7 @@ export default () =>  {
         </TouchableOpacity>
 
         <TouchableOpacity style={ active === 2 ? Styles.categoryItemActive : Styles.categoryItem} onPress={()=>setActive(2)}>
-          <IconKids color={active === 2 ? '#fff' :'#455CC7'} width={sameSize(40)} height={sameSize(40) } />
+          <IconKids color={active === 2 ? '#fff' :'#455CC7'} width={sameSize(45)} height={sameSize(45) } />
           <Text style={active === 2 ? Styles.categoryItemTextActive :Styles.categoryItemText }>بچه‌گانه</Text>
         </TouchableOpacity>
 
@@ -60,21 +52,6 @@ const Styles = StyleSheet.create({
   root: {
     paddingHorizontal:sameSize(20),
     paddingTop:sameSize(10),
-  },
-  titleView:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-  },
-  titleIconView:{
-    flexDirection:'row',
-    justifyContent:'center',
-    alignItems:'center',
-  },
-  titleText:{
-    fontFamily:'AzarMehr-Bold',
-    fontSize:15,
-    color:'#000'
   },
   allCat:{
     fontFamily:'AzarMehr-Medium',

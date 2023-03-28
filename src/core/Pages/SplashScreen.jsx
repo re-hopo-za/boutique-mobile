@@ -16,7 +16,6 @@ export default ({navigation}) => {
 
     setTimeout( ()=>{
       if ( status === 'succeeded') {
-        console.log(status);
         if (!profile.isLogin && profile.registrationStatus) {
           navigation.navigate('Registration')
         } else if (profile.introductionStatus) {

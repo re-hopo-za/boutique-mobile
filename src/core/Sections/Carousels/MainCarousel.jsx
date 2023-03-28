@@ -1,22 +1,19 @@
 import {
-  Button,
-  Image, ImageBackground,
+  Image,
   StyleSheet, Text, TouchableOpacity,
   View,
 } from "react-native";
 
-import { sameSize, windowWidth } from "../Tools/Functions";
+import { sameSize, textShadow, windowWidth } from "../../Tools/Functions";
 import { useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Carousel from "react-native-reanimated-carousel/src/Carousel";
 import * as React from "react";
 import Svg, { Circle } from "react-native-svg";
 
-import source_a from '../../resources/images/temporary/main-slider-1.jpg';
-import source_b from '../../resources/images/temporary/main-slider-2.jpg';
-import source_c from '../../resources/images/temporary/main-slider-3.jpg';
-import source_d from '../../resources/images/temporary/main-slider-4.jpg';
-import Background from "../../resources/images/backgrounds/registrationBackground.png";
+import source_a from '../../../resources/images/temporary/main-slider-1.jpg';
+import source_b from '../../../resources/images/temporary/main-slider-2.jpg';
+import source_c from '../../../resources/images/temporary/main-slider-3.jpg';
 import LinearGradient from "react-native-linear-gradient";
 
 
@@ -26,7 +23,6 @@ import LinearGradient from "react-native-linear-gradient";
 export default ( ) =>  {
 
   const [activeSlide ,setActiveSlide]  = useState(0);
-
 
   const items = [
     {
@@ -107,6 +103,7 @@ const Styles = StyleSheet.create({
   carouselView:{
     height:sameSize(230),
     paddingHorizontal:sameSize(20),
+
   },
   carouselItem:{
     borderRadius:sameSize(12),
@@ -134,7 +131,7 @@ const Styles = StyleSheet.create({
   carouselImage:{
     flex:1,
     width:'100%',
-    opacity:0.75
+    opacity:0.75,
   },
   dotsView:{
     height:sameSize(20),
@@ -152,13 +149,7 @@ const Styles = StyleSheet.create({
     color:'#fff',
     paddingTop:sameSize(10),
     width:sameSize(100),
-    textShadowColor:'#000',
-    textShadowOffset:{
-      width: 0,
-      height: 0,
-    },
-    textShadowRadius:10,
-    elevation: 19,
+    ...textShadow(),
   },
   carouselButtonGradiant:{
     paddingHorizontal:sameSize(20),

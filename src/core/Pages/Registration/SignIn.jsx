@@ -9,7 +9,7 @@ import {
 
 import { Formik } from "formik";
 import * as Yup from 'yup';
-import Linking from "../../Features/Linking";
+import Linking from "../../Components/Linking";
 import { heightScale, sameSize } from "../../Tools/Functions";
 import { IconBackArrow, IconExclamation } from "../../Tools/Icons";
 
