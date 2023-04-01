@@ -10,9 +10,11 @@ import denims_a from "../../resources/images/temporary/denims-1.png";
 import denims_b from "../../resources/images/temporary/denims-2.png";
 import denims_c from "../../resources/images/temporary/denims-3.png";
 import denims_d from "../../resources/images/temporary/denims-4.png";
-import { numberToPersian, sameSize, separator } from "../Tools/Functions";
+import { sameSize } from "../Tools/Functions";
 import { IconHeart, IconSelectedInput } from "../Tools/Icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import * as React from "react";
+
+
 
 
 export default ({navigation}) =>  {
@@ -55,13 +57,9 @@ export default ({navigation}) =>  {
   ];
 
 
-
-  const getItemCount = _data => 50;
-
-
   return (
     <View style={Styles.root} >
-      <Header page='Cart' />
+      <Header navigation={navigation} />
       <Text style={Styles.cartTitle}>سبد خرید</Text>
 
       <FlatList
@@ -80,7 +78,7 @@ export default ({navigation}) =>  {
 
 const FaveItem = ({item}) => (
     <View style={Styles.cartItemView}>
-      <IconHeart width={25} height={25} color='#707070' />
+      <IconHeart width={25} height={25} color='#FF5C5A' />
       <View>
         <Text style={Styles.cartItemDetailsTitle}>{item.title}</Text>
         <Text style={Styles.cartItemDetailsModel}>{item.model}</Text>
@@ -89,7 +87,7 @@ const FaveItem = ({item}) => (
         <Image style={Styles.cartItemImage} source={item.cover}/>
       </View>
     </View>
-  );
+);
 
 
 const Styles = StyleSheet.create({

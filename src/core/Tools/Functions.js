@@ -8,8 +8,6 @@ export const sameSize = (dimension) => {
   const standardWidth = 375.0;
   return (dimension / standardWidth) * windowWidth;
 }
-
-
 export const heightScale = (dimension) => {
   const standardHeight = 667.0;
   return (dimension / standardHeight) * windowHeight;

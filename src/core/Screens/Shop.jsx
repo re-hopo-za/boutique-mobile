@@ -5,8 +5,8 @@ import {
 } from "react-native";
 import Footer from "../Layouts/Footer";
 import Banner from "../Sections/BannerSection";
-import CarouselCategories from "../Carousels/CarouselCategories";
-import CarouselMultiItems from "../Carousels/CarouselMultiItems";
+import CarouselCategories from "../Components/CarouselCategories";
+import CarouselMultiItems from "../Components/CarouselMultiItems";
 import cat_a from "../../resources/images/temporary/cat-1.png";
 import cat_b from "../../resources/images/temporary/cat-2.png";
 import engagement_a from "../../resources/images/temporary/engagement-1.png";
@@ -114,7 +114,7 @@ export default ({navigation}) =>  {
   return (
     <ScrollView style={Styles.root} >
 
-      <Banner />
+      <Banner navigation={navigation}/>
       <CarouselCategories
         title='دسنه بندی‌ها'
         route='Categories'

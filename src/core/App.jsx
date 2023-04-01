@@ -6,7 +6,6 @@ import {
 import { useSelector } from "react-redux";
 import { colorSchemaSlice } from "./States/colorSchemaSlice";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SignIn from "./Layouts/SignIn";
 import SignUp from "./Layouts/SignUp";
 import Registration from "./Layouts/Registration";
@@ -17,14 +16,17 @@ import SplashScreen from './Layouts/SplashScreen'
 import Shop from "./Screens/Shop";
 import SingleProduct from "./Screens/SingleProduct";
 import Cart from "./Screens/Cart";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import Fave from "./Screens/Fave";
+import CustomDrawer from "./Layouts/Drawer";
+import Profile from "./Screens/Profile";
 
 
 
 
 export default  () => {
   const colorSchema = useSelector( colorSchemaSlice );
-  const Stack = createNativeStackNavigator();
+  const Drawer  = createDrawerNavigator();
   const Options = {  headerShown:false }
 
 
@@ -35,23 +37,26 @@ export default  () => {
         backgroundColor={colorSchema.barBackgroundColor}
       />
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen options={Options} name="Redirector" component={SplashScreen} />
-            <Stack.Screen options={Options} name="Registration" component={Registration} />
-            <Stack.Screen options={Options} name="SignUp" component={SignUp} />
-            <Stack.Screen options={Options} name="SignIn" component={SignIn} />
-            <Stack.Screen options={Options} name="Verification" component={Verification} />
-            <Stack.Screen options={Options} name="Introduction" component={Introduction} />
-            <Stack.Screen options={Options} name="Home" component={Home} />
-            <Stack.Screen options={Options} name="Shop" component={Shop} />
-            <Stack.Screen options={Options} name="SingleProduct" component={SingleProduct} />
-            <Stack.Screen options={Options} name="Cart" component={Cart} />
-            <Stack.Screen options={Options} name="Fave" component={Fave} />
-          </Stack.Navigator>
+          <Drawer.Navigator screenOptions={Options} drawerContent={ props => <CustomDrawer {...props} />} >
+            <Drawer.Screen name="Redirector" component={SplashScreen} />
+            <Drawer.Screen name="Registration" component={Registration} />
+            <Drawer.Screen name="SignUp" component={SignUp} />
+            <Drawer.Screen name="SignIn" component={SignIn} />
+            <Drawer.Screen name="Verification" component={Verification} />
+            <Drawer.Screen name="Introduction" component={Introduction} />
+            <Drawer.Screen name="Home" component={Home} />
+            <Drawer.Screen name="Shop" component={Shop} />
+            <Drawer.Screen name="SingleProduct" component={SingleProduct} />
+            <Drawer.Screen name="Cart" component={Cart} />
+            <Drawer.Screen name="Fave" component={Fave} />
+            <Drawer.Screen name="Profile" component={Profile} />
+          </Drawer.Navigator>
         </NavigationContainer>
     </View>
   );
 }
+
+
 
 
 

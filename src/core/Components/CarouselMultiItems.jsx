@@ -11,7 +11,7 @@ import Carousel from "react-native-reanimated-carousel/src/Carousel";
 import * as React from "react";
 
 
-import ShowAll from "../Components/ShowAll";
+import ShowAll from "./ShowAll";
 
 
 
@@ -28,6 +28,9 @@ export default ({navigation ,title ,route ,endpoint ,items}) =>  {
           style={
             { width: windowWidth , ...Styles.carousel }
           }
+          panGestureHandlerProps={{
+            activeOffsetX: [-10, 10],
+          }}
           loop={true}
           data={items}
           pagingEnabled={false}
@@ -40,6 +43,7 @@ export default ({navigation ,title ,route ,endpoint ,items}) =>  {
                   <Image style={Styles.carouselImage} source={items[index]?.cover} />
                 </View>
                 <Text style={Styles.carouseTitle}> {items[index]?.title} </Text>
+                <Text style={Styles.carouseCat}> {items[index]?.model} </Text>
                 <Text style={Styles.carousePrice}>
                   { numberToPersian( separator( items[index]?.price ) ) } تومان
                 </Text>
@@ -74,18 +78,16 @@ const Styles = StyleSheet.create({
   },
   carouselView:{
     backgroundColor:'#fff',
-    width:'90%',
+    width:'87%',
     alignItems:'flex-end',
     justifyContent:'flex-end',
-    padding:sameSize(10),
+    paddingBottom:sameSize(5),
     borderRadius:sameSize(12),
     overflow:'hidden',
-    borderColor:'#DFDFDF',
-    borderWidth:2,
   },
   carouselImageView:{
     width:'100%',
-    height:sameSize(150),
+    height:sameSize(180),
     borderRadius:sameSize(12),
     overflow:'hidden',
     ...shadowStyle()
@@ -105,7 +107,13 @@ const Styles = StyleSheet.create({
     height:sameSize(25),
     overflow:'hidden'
   },
-
+  carouseCat:{
+    fontSize:11,
+    textAlign:'right',
+    fontFamily:'AzarMehr-Regular',
+    paddingHorizontal:sameSize(7),
+    color:'#404243',
+  },
   carousePrice:{
     paddingVertical:sameSize(5),
     fontSize:13,

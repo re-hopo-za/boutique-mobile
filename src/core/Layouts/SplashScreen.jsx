@@ -20,10 +20,10 @@ export default ({navigation}) => {
           } else if (profile.introductionStatus) {
             navigation.navigate('Introduction')
           } else {
-            navigation.navigate('Fave')
+            navigation.navigate('Profile')
           }
         }else{
-          navigation.navigate('Fave')
+          navigation.navigate('Profile')
         }
       } , 30)
     }

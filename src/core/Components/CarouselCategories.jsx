@@ -15,7 +15,7 @@ import engagement_b from '../../resources/images/temporary/engagement-2.png';
 import engagement_c from '../../resources/images/temporary/engagement-3.png';
 import categoryShadow from '../../resources/images/backgrounds/categoryShadow.png';
 
-import ShowAll from "../Components/ShowAll";
+import ShowAll from "./ShowAll";
 
 
 
@@ -36,6 +36,9 @@ export default ({navigation ,title ,route ,endpoint ,items }) =>  {
           style={
             { width: windowWidth , ...Styles.carousel }
           }
+          panGestureHandlerProps={{
+            activeOffsetX: [-10, 10],
+          }}
           loop={true}
           data={items}
           pagingEnabled={false}

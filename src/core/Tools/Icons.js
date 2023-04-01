@@ -1,4 +1,4 @@
-import Svg, { Circle, Defs, Ellipse, G, Path, Rect, Text, TSpan } from "react-native-svg";
+import Svg, { Circle, ClipPath, Defs, Ellipse, G, Path, Rect, Text, TSpan } from "react-native-svg";
 
 
 export const IconBackArrow = ({color ,width ,height }) =>{
@@ -380,13 +380,197 @@ export const IconSelectedInput = ({width ,height ,color ='' }) =>{
       <Path d="M12.875,8.125a4.75,4.75,0,1,0,4.75,4.75A4.764,4.764,0,0,0,12.875,8.125Zm0-4.75a9.5,9.5,0,1,0,9.5,9.5A9.528,9.528,0,0,0,12.875,3.375Zm0,17.1a7.6,7.6,0,1,1,7.6-7.6A7.622,7.622,0,0,1,12.875,20.475Z" transform="translate(-3.375 -3.375)" fill={color}/>
     </Svg>
 
-)
+  )
 }
 
 
+export const IconDrawerShare = ({width ,height ,color ='' }) =>{
+  return (
+    <Svg height={height} width={width} viewBox="0 0 24 24">
+      <Defs>
+        <ClipPath id="a">
+          <Path fill="none" d="M0 0H24V24H0z" />
+        </ClipPath>
+      </Defs>
+      <G
+        data-name="Share"
+        fill="none"
+        stroke="#000"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        fillRule="evenodd"
+        clipPath="url(#a)"
+      >
+        <Path d="M17 10c-2.6 0-3-.75-3-3s.4-3 3-3 3 .75 3 3-.4 3-3 3zM17 20c-2.6 0-3-.75-3-3s.4-3 3-3 3 .75 3 3-.4 3-3 3zM7 15c-2.6 0-3-.75-3-3s.4-3 3-3 3 .75 3 3-.4 3-3 3zM14.11 8.45l-4.221 2.1M14.11 15.55l-4.221-2.1" />
+      </G>
+    </Svg>
+  )
+}
 
 
+export const IconDrawerLogout = ({width ,height ,color ='' }) =>{
+  return (
+    <Svg height={height} width={width} viewBox="0 0 24 24">
+      <Defs>
+        <ClipPath id="a">
+          <Path fill="none" d="M0 0H24V24H0z" />
+        </ClipPath>
+      </Defs>
+      <G
+        fill="none"
+        stroke="#000"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        fillRule="evenodd"
+        data-name="Log out"
+        clipPath="url(#a)"
+      >
+        <Path d="M19.111 12h-8M16.111 15l3-3-3-3M10.111 4C5.911 4 5 5 5 12s.911 8 5.111 8" />
+      </G>
+    </Svg>
+  )
+}
 
+export const IconDrawerSettings = ({width ,height ,color ='' }) =>{
+  return (
+    <Svg height={height} width={width} viewBox="0 0 24 24">
+      <Defs>
+        <ClipPath>
+          <Path fill="none" d="M0 0H24V24H0z" />
+        </ClipPath>
+      </Defs>
+        <G clipPath="url(#clip-path)">
+          <G>
+            <Rect width="24" height="24" opacity="0"/>
+            <Path d="M10.231,6.035C10.231,4,10.373,4,12,4s1.768,0,1.768,2.035" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M10.231,17.965C10.231,20,10.373,20,12,20s1.768,0,1.768-2.035" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M17.965,10.231C20,10.231,20,10.373,20,12s0,1.768-2.035,1.768" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M6.035,13.769C4,13.769,4,13.627,4,12s0-1.768,2.035-1.768" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M14.969,6.524c1.44-1.431,1.538-1.333,2.685-.178s1.253,1.244-.178,2.685" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M6.524,14.969c-1.431,1.44-1.333,1.538-.178,2.685s1.244,1.253,2.685-.178" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M17.476,14.969c1.431,1.44,1.333,1.538.178,2.685s-1.244,1.253-2.685-.178" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M6.524,9.031c-1.431-1.44-1.333-1.538-.178-2.685s1.244-1.253,2.685.178" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M6.524,9.031a5.9,5.9,0,0,0-.489,1.2" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M6.524,14.969a5.9,5.9,0,0,1-.489-1.2" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M14.969,17.476a5.9,5.9,0,0,1-1.2.489" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M17.965,10.231a5.9,5.9,0,0,0-.489-1.2" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M14.969,6.524a5.9,5.9,0,0,0-1.2-.489" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M17.965,13.769a5.9,5.9,0,0,1-.489,1.2" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M10.231,17.965a5.9,5.9,0,0,1-1.2-.489" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M10.231,6.035a5.9,5.9,0,0,0-1.2.489" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+            <Path d="M15,12a3,3,0,1,1-3-3A3,3,0,0,1,15,12Z" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" fillRule="evenodd"/>
+          </G>
+        </G>
+    </Svg>
+  )
+}
+
+
+export const IconDrawerLocation = ({width ,height ,color ='' }) =>{
+  return (
+    <Svg height={height} width={width} viewBox="0 0 24 24">
+      <Defs>
+        <ClipPath>
+          <Path fill="none" d="M0 0H24V24H0z" />
+        </ClipPath>
+      </Defs>
+        <G clipPath="url(#clip-path)">
+          <G>
+            <Rect id="Rectangle" width={24} height={24} opacity={0} />
+            <Path
+              id="Stroke-1"
+              d="M12,20s-6-4-6-9.571C6,9,6,4,12,4s6,4.857,6,6.429C18,16,12,20,12,20Z"
+              fill="none"
+              stroke="#000"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              fillRule="evenodd"
+            />
+            <Path
+              id="Stroke-3"
+              d="M14,10a2,2,0,1,1-2-2A2,2,0,0,1,14,10Z"
+              fill="none"
+              stroke="#000"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              fillRule="evenodd"
+            />
+          </G>
+        </G>
+    </Svg>
+  )
+}
+
+export const IconDrawerBox = ({width ,height ,color ='' }) =>{
+  return (
+    <Svg height={height} width={width} viewBox="0 0 24 24">
+      <Defs>
+        <ClipPath>
+          <Path fill="none" d="M0 0H24V24H0z" />
+        </ClipPath>
+      </Defs>
+      <G id="Box" clipPath="url(#clip-path)">
+        <G id="Box-2" data-name="Box">
+          <Rect id="Rectangle" width={24} height={24} opacity={0} />
+          <Path
+            id="Stroke-1"
+            d="M12,3l8,4V17l-8,4L4,17V7Z"
+            fill="none"
+            stroke="#000"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            fillRule="evenodd"
+          />
+          <Path
+            id="Stroke-3"
+            d="M4,7l8,4,8-4"
+            fill="none"
+            stroke="#000"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            fillRule="evenodd"
+          />
+          <Path
+            id="Stroke-5"
+            d="M12,21V11"
+            fill="none"
+            stroke="#000"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            fillRule="evenodd"
+          />
+          <Path
+            id="Stroke-7"
+            d="M8,5l8,4"
+            fill="none"
+            stroke="#000"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            fillRule="evenodd"
+          />
+          <Path
+            id="Stroke-10"
+            d="M15,14l2-1"
+            fill="none"
+            stroke="#000"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            fillRule="evenodd"
+          />
+        </G>
+      </G>
+    </Svg>
+  )
+}
 
 
 

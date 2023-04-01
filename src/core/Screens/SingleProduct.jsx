@@ -7,7 +7,7 @@ import {
 import Footer from "../Layouts/Footer";
 import Header from "../Layouts/Header";
 import { numberToPersian, sameSize } from "../Tools/Functions";
-import CarouselSinglePage from "../Carousels/CarouselSinglePage";
+import CarouselSinglePage from "../Components/CarouselSinglePage";
 import source_a from "../../resources/images/temporary/single-page(1).jpg";
 import source_b from "../../resources/images/temporary/single-page(2).jpg";
 import source_c from "../../resources/images/temporary/single-page(3).jpg";
@@ -16,7 +16,7 @@ import { IconCart, IconCartWithCount, IconHeart } from "../Tools/Icons";
 import recom_a from "../../resources/images/temporary/recom-1.png";
 import recom_b from "../../resources/images/temporary/recom-2.png";
 import recom_c from "../../resources/images/temporary/recom-3.png";
-import CarouselMultiBorder from "../Carousels/CarouselMultiBorder";
+import CarouselMultiBorder from "../Components/CarouselMultiBorder";
 
 const best = [
   {
@@ -78,7 +78,7 @@ export default ({navigation ,item}) =>  {
 
       <View style={Styles.carouseView}>
         <View style={Styles.headerView}>
-          <Header page='ProductSingle' navigation={navigation}/>
+          <Header navigation={navigation}/>
         </View>
         <CarouselSinglePage items={item.images} />
       </View>

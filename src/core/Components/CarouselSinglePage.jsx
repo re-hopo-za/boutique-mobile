@@ -42,8 +42,6 @@ export default ({items}) =>  {
             </View>
           )}
         />
-        {/*<Line key={key} x1="-5" y1="0" x2="35" y2="0" transform="translate(34 25)" fill="none" strokeWidth="46" strokeLinecap="round" stroke="#455CC7"/>*/}
-
         <View style={Styles.carouselDetails}>
           <Svg width={120} height={13} viewBox="0 0 300 50" >
             { items.map( (item ,key) =>(

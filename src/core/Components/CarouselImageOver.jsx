@@ -14,13 +14,11 @@ import shoes_a from '../../resources/images/temporary/shoes-1.png';
 import shoes_b from '../../resources/images/temporary/shoes-2.png';
 import shoes_c from '../../resources/images/temporary/shoes-3.png';
 
-import ShowAll from "../Components/ShowAll";
+import ShowAll from "./ShowAll";
 
 
 
 export default ({navigation ,title ,route ,endpoint ,items}) =>  {
-
-
 
   return (
 
@@ -29,13 +27,16 @@ export default ({navigation ,title ,route ,endpoint ,items}) =>  {
 
       <GestureHandlerRootView>
         <Carousel
+          scrollEnabled={false}
           width={(windowWidth /2.4)}
           style={
             { width: windowWidth , ...Styles.carousel }
           }
+          panGestureHandlerProps={{
+            activeOffsetX: [-10, 10],
+          }}
           loop={true}
           data={items}
-          scrollEnabled={true}
           pagingEnabled={false}
           scrollAnimationDuration={500}
           enableSnap={true}

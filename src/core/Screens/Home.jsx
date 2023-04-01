@@ -5,12 +5,12 @@ import {
 } from "react-native";
 import Header from "../Layouts/Header";
 import Search from "../Sections/SearchSection";
-import CarouselSingle from "../Carousels/CarouselMain";
+import CarouselSingle from "../Components/CarouselMain";
 import Categories from "../Sections/CategoriesIconSection";
-import CarouselImageOver from "../Carousels/CarouselImageOver";
+import CarouselImageOver from "../Components/CarouselImageOver";
 import GridSection from "../Sections/GridSection";
 import MeshSection from "../Sections/MeshSection";
-import CarouselMultiItems from "../Carousels/CarouselMultiItems";
+import CarouselMultiItems from "../Components/CarouselMultiItems";
 import Footer from "../Layouts/Footer";
 import shoes_a from "../../resources/images/temporary/shoes-1.png";
 import shoes_b from "../../resources/images/temporary/shoes-2.png";
@@ -145,7 +145,7 @@ export default ({navigation}) =>  {
 
   return (
     <ScrollView style={Styles.root} >
-      <Header page='Home' />
+      <Header navigation={navigation} />
       <Search/>
       <CarouselSingle/>
       <Categories />

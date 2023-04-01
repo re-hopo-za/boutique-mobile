@@ -1,6 +1,5 @@
 
 import {
-  FlatList,
   ScrollView,
   StyleSheet, Text, View, Image, VirtualizedList,
 } from "react-native";
@@ -63,7 +62,7 @@ export default ({navigation}) =>  {
 
   return (
     <ScrollView style={Styles.root} >
-      <Header page='Cart' />
+      <Header navigation={navigation}/>
       <Text style={Styles.cartTitle}>سبد خرید</Text>
       {
         cart.cartItems && cart.cartItems.map( item => (

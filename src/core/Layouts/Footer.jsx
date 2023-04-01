@@ -81,7 +81,7 @@ const Styles = StyleSheet.create({
     justifyContent:'space-evenly',
   },
   text:{
-    fontSize:13,
+    fontSize:sameSize(11),
     fontFamily:'AzarMehr-Regular',
     color:'#757575',
   }

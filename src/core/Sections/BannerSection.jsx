@@ -1,13 +1,12 @@
 import {
   StyleSheet,
-  TouchableOpacity,
   View,
-  Text, Image, ImageBackground,
+  Text,
+  ImageBackground,
 } from "react-native";
 
-import { numberToPersian, sameSize, separator } from "../Tools/Functions";
-import { useState } from "react";
-import ShowAll from "../Components/ShowAll";
+import { sameSize } from "../Tools/Functions";
+
 
 import backgroundShadow from "../../resources/images/backgrounds/shopBannerShadow.png";
 import bannerBackground from "../../resources/images/temporary/shopBanner.png";
@@ -18,7 +17,7 @@ import Header from "../Layouts/Header";
 
 
 export default ({navigation ,title ,route ,endpoint}) =>  {
-  const [active ,setActive] = useState( 0 );
+
 
   const item = {
     src : backgroundShadow ,
@@ -28,8 +27,8 @@ export default ({navigation ,title ,route ,endpoint}) =>  {
 
   return (
       <ImageBackground imageStyle={Styles.backgroundImageStyle} style={Styles.backgroundImageView} source={bannerBackground}>
-        <Header page='Shop' navigation={navigation}/>
-        <ImageBackground imageStyle={Styles.shadowImageStyle} style={Styles.shadowImageView} source={item.src}>
+        <Header color='#fff' navigation={navigation}/>
+        <ImageBackground  style={Styles.shadowImageView} source={item.src}>
           <View style={Styles.bannerView}>
             <Text style={Styles.bannerTitle}>{item.title}</Text>
             <Text style={Styles.bannerSubTitle}>{item.subTitle}</Text>

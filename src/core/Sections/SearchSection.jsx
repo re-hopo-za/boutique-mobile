@@ -22,7 +22,7 @@ export default () =>  {
     <View style={Styles.root}>
       <View style={Styles.searchView}>
         <TouchableOpacity onPress={handleSearch}>
-          <IconSearch width={sameSize(24)} height={sameSize(24)} />
+          <IconSearch width={sameSize(20)} height={sameSize(20)} />
         </TouchableOpacity>
         <TextInput style={Styles.searchInput} placeholder='جستجو...' onChangeText={(val) => setKeywords( val ) }/>
       </View>
