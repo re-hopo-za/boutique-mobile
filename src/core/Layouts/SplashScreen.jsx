@@ -9,22 +9,25 @@ export default ({navigation}) => {
   const { profile ,status } = useSelector(state => state.profile );
   const dispatch = useDispatch();
 
-
-
   useEffect(()=>{
     dispatch(getUserProfile());
 
-    setTimeout( ()=>{
-      if ( status === 'succeeded') {
-        if (!profile.isLogin && profile.registrationStatus) {
-          navigation.navigate('Registration')
-        } else if (profile.introductionStatus) {
-          navigation.navigate('Introduction')
-        } else {
-          navigation.navigate('Home')
+    if( status === 'succeeded' ){
+      setTimeout( ()=>{
+        if ( profile !== null && typeof profile === 'object' ) {
+          if (!profile.isLogin && profile.registrationStatus) {
+            navigation.navigate('Registration')
+          } else if (profile.introductionStatus) {
+            navigation.navigate('Introduction')
+          } else {
+            navigation.navigate('Fave')
+          }
+        }else{
+          navigation.navigate('Fave')
         }
-      }
-    } , 30)
+      } , 30)
+    }
+
 
   } ,[status])
 

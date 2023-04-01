@@ -1,11 +1,11 @@
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Background from '../../../resources/images/backgrounds/registrationBackground.png'
+import Background from '../../resources/images/backgrounds/registrationBackground.png'
 import LinearGradient from "react-native-linear-gradient";
-import { IconClose , Logo } from "../../Tools/Icons";
-import { sameSize } from "../../Tools/Functions";
+import { IconClose , Logo } from "../Tools/Icons";
+import { sameSize } from "../Tools/Functions";
 
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserProfile } from "../../States/profileSlice";
+import { updateUserProfile } from "../States/profileSlice";
 
 
 export default ({navigation}) => {
@@ -27,7 +27,7 @@ export default ({navigation}) => {
           <View style={Styles.logoCon}>
             <View style={Styles.closeView}>
               <TouchableOpacity onPress={closeRegistration}>
-                <IconClose width={45} height={45} color='#fff'/>
+                <IconClose width={50} height={50} color='#fff'/>
               </TouchableOpacity>
             </View>
             <Logo color='#fff' width={sameSize(200)} height={sameSize(60) }/>
@@ -38,10 +38,10 @@ export default ({navigation}) => {
             </Text>
           </View>
           <View style={Styles.buttonsCon}>
-            <TouchableOpacity style={Styles.signIn} onPress={()=>navigation.navigate('SignIn')}>
+            <TouchableOpacity style={Styles.signIn} onPress={() => navigation.navigate('SignUp')}>
               <Text style={Styles.signInText}>ثبت‌نام با ایمیل</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={Styles.signUp} onPress={()=>navigation.navigate('SignUp' )} >
+            <TouchableOpacity style={Styles.signUp} onPress={() => navigation.navigate('SignIn' )} >
               <Text style={Styles.signUpText}>ورود با ایمیل</Text>
             </TouchableOpacity>
           </View>
@@ -72,8 +72,9 @@ const Styles = StyleSheet.create({
   },
   closeView:{
     alignItems:'flex-end',
-    width:'100%',
-    height:sameSize(20)
+    alignSelf:'flex-end',
+    width:sameSize(30),
+    height:sameSize(30)
   },
   logoCon:{
     justifyContent:'center',

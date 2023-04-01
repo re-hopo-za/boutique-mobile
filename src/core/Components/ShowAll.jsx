@@ -5,7 +5,15 @@ import { sameSize } from "../Tools/Functions";
 
 
 
-export default ({title ,url}) => {
+export default ({navigation ,title ,route ,endpoint }) => {
+
+
+  const showAll = () => {
+    navigation.navigate( route ,{
+      endpoint
+    });
+  }
+
 
   return (
     <View style={Styles.titleView}>
@@ -13,7 +21,7 @@ export default ({title ,url}) => {
         <IconArrowLeft color='#9D9D9D' width={sameSize(25)} height={sameSize(20) }/>
         <Text style={Styles.allCat}> نمایش همه</Text>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={showAll}>
         <Text style={Styles.titleText}> {title}</Text>
       </TouchableOpacity>
     </View>

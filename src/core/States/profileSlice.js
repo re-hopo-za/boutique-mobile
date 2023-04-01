@@ -1,5 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+ ;
+import { AsyncStoreKeyMap, getObjectValue, storeData, updateObjectData } from "../Tools/AsyncStorage";
+
+
 
 const initialState = {
   profile:{
@@ -12,67 +15,46 @@ const initialState = {
 }
 
 
-const getData = async () => {
-  try {
-    return AsyncStorage.getItem('@user_profile').then((value) => {
-      return JSON.parse(value);
-    });
-  } catch(e) {
-    return null;
-  }
-}
-
 
 
 export const getUserProfile = createAsyncThunk(
-  "profile/getProfile",
+  "profile/getUserProfile",
   async (userData, { rejectWithValue }) => {
+
     try {
-      const jsonValue = AsyncStorage.getItem('@user_profile').then((value) => {
-        return JSON.parse(value);
-      });
-      if ( jsonValue == null ){
-        return await AsyncStorage.setItem("@user_profile" ,JSON.stringify(initialState.profile) )
-          .then(() => {
-              AsyncStorage.getItem("@user_profile")
-                .then( (result) => {
-                  return JSON.parse(result);
-                })
-            }
-          )
+      let profile = await getObjectValue(AsyncStoreKeyMap.appSettings).then(r => r)
+      if ( profile === null || typeof profile !== 'object' ) {
+        await storeData(AsyncStoreKeyMap.appSettings ,initialState.profile).then(r => r );
+        profile = initialState.profile
       }
-      return jsonValue;
+      return profile;
     } catch(e) {
       return rejectWithValue( e );
     }
 })
 
 
+
 export const updateUserProfile = createAsyncThunk(
-  'profile/updateProfile',
-  async ( data  ,{ rejectWithValue } ) => {
+  'profile/updateUserProfile',
+  async ( data ,{ rejectWithValue } ) => {
+
     try {
-      let profile = AsyncStorage.getItem('@user_profile').then((value) => {
-        return JSON.parse(value);
-      })
-      if (profile == null) {
+      let profile = await getObjectValue(AsyncStoreKeyMap.appSettings).then(r => r)
+
+      if ( !profile && profile["isLogin"] === undefined  ) {
         profile = initialState.profile
       }
       const { key, value } = data;
       profile[key] = value;
-      return await AsyncStorage.setItem("@user_profile", JSON.stringify(profile))
-        .then(() => {
-            AsyncStorage.getItem("@user_profile")
-              .then((result) => {
-                JSON.parse(result)
-              })
-          }
-        )
+      await storeData(AsyncStoreKeyMap.appSettings ,profile ).then(r =>r => r )
+      return profile
     }catch(e) {
       return rejectWithValue( e );
     }
   }
 )
+
 
 export const profileSlice = createSlice({
   name:'profile',
@@ -84,6 +66,7 @@ export const profileSlice = createSlice({
         state.status = "succeeded"
         state.profile = action.payload;
       })
+
 
   }
 })

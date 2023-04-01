@@ -47,7 +47,6 @@ export default () =>  {
     <View style={Styles.root}>
       <ShowAll title='شومیز زنانه' />
       <View style={Styles.gridItem}>
-
         <View style={Styles.gridItemLeft}>
           {
             items[1] && (

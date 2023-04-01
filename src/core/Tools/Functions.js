@@ -1,6 +1,4 @@
-import { Dimensions, PixelRatio } from "react-native";
-
-
+import { Dimensions } from "react-native";
 
 
 export const windowWidth  = Dimensions.get("window").width;
@@ -43,7 +41,7 @@ export const separator = ( num ) => {
 
 
 
-export const shadowStyle = () => {
+export const shadowStyle = (color ='#9a9a9a') => {
   return {
     shadowColor: "#9a9a9a",
     shadowOffset: {
@@ -67,3 +65,8 @@ export const textShadow = (color ='#000') => {
     elevation: 19,
   }
 }
+
+
+
+
+

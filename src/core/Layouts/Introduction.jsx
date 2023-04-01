@@ -9,18 +9,18 @@ import {
 import Carousel from "react-native-reanimated-carousel/src/Carousel";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { sameSize, windowWidth } from "../Tools/Functions";
-import { useState } from "react";
+import {  useState } from "react";
 import Svg, { Circle, Path } from "react-native-svg";
 import yellow from '../../resources/images/temporary/yellow.png'
 import orange from '../../resources/images/temporary/orange.png'
 import blue from '../../resources/images/temporary/blue.jpg'
-import { updateUserProfile } from "../States/profileSlice";
-import { useDispatch } from "react-redux";
-
+import { getUserProfile, updateUserProfile } from "../States/profileSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default ({navigation}) =>  {
 
   const dispatch = useDispatch();
+
   const [activeSlide ,setActiveSlide] = useState(0);
 
   const items = [
@@ -34,6 +34,9 @@ export default ({navigation}) =>  {
     );
     navigation.navigate('Home')
   }
+
+  const { profile ,status } = useSelector(state => state.profile );
+
 
 
   const Styles = StyleSheet.create({

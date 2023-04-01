@@ -66,7 +66,7 @@ const Styles = StyleSheet.create({
   },
   categoryItem:{
     backgroundColor:'#DCE0F9',
-    width:sameSize(70),
+    width:sameSize(75),
     height:sameSize(70),
     alignItems:'center',
     justifyContent:'center',

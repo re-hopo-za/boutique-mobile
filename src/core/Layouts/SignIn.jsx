@@ -1,20 +1,24 @@
 import {
-  Pressable,
   StyleSheet,
+  Pressable,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
 
+import { IconBackArrow, IconExclamation, IconMobile, Logo } from "../Tools/Icons";
 import { Formik } from "formik";
 import * as Yup from 'yup';
-import Linking from "../../Components/Linking";
-import { heightScale, sameSize } from "../../Tools/Functions";
-import { IconBackArrow, IconExclamation } from "../../Tools/Icons";
+import { heightScale, sameSize } from "../Tools/Functions";
+
 
 
 export default ({navigation}) => {
+
+
+
+
   const Styles = StyleSheet.create({
     root:{
       flex:1,
@@ -32,17 +36,23 @@ export default ({navigation}) => {
       paddingLeft:sameSize(20),
       paddingRight:sameSize(20)
     },
+    logoView:{
+      margin:sameSize(30),
+      shadowColor: '#171717',
+      shadowOffset: {width: -2, height: 4},
+      shadowOpacity: 0.2,
+      shadowRadius: 3,
+      width:'50%',
+      alignSelf:'center'
+    },
+    elevation: {
+      elevation: 20,
+      shadowColor: '#52006A',
+    },
     form:{
       paddingRight:sameSize(30),
       paddingLeft:sameSize(30),
       paddingTop:sameSize(10),
-    },
-    signInText:{
-      color:'#2D2D2F',
-      paddingTop:sameSize(15),
-      fontSize:20,
-      fontFamily:'AzarMehr-Medium',
-      textAlign:'center'
     },
     textInput:{
       fontFamily:'AzarMehr-Regular',
@@ -75,20 +85,6 @@ export default ({navigation}) => {
       fontFamily:'AzarMehr-Medium',
       marginTop:10
     },
-    conditionText:{
-      color:'#333',
-      fontFamily:'AzarMehr-Medium',
-      fontSize:16,
-      textAlign:"center",
-      paddingTop:sameSize(15)
-    },
-    blueText:{
-      color:'#2967FF',
-      fontFamily:'AzarMehr-Bold',
-    },
-    link:{
-      color:'#2967FF'
-    },
     bottomView:{
       padding:sameSize(30),
     },
@@ -105,15 +101,20 @@ export default ({navigation}) => {
       height:'100%',
       verticalAlign:'middle'
     },
+    forgetPassword:{
+      color:'#455CC7',
+      textAlign:'center',
+      marginTop:sameSize(19),
+      fontSize:17,
+      fontFamily:'AzarMehr-Regular',
+    }
 
   });
-
 
 
   const handleSubmit = (values) => {
     console.log(values);
   }
-
 
   const back = () => {
     navigation.goBack();
@@ -126,9 +127,7 @@ export default ({navigation}) => {
 
 
   const SignupSchema = Yup.object().shape({
-    fullName: Yup.string()
-      .min(2, 'مقداری که برای فیلد "نام کامل" وارد کردهاید نامناسب است.')
-      .required(' فیلد "نام کامل" الزامی میباشد.'),
+
     email: Yup.string()
       .email('مقداری که برای فیلد "ایمیل" وارد کردهاید نامناسب است.')
       .required(' فیلد "ایمیل" الزامی  میباشد.'),
@@ -136,42 +135,29 @@ export default ({navigation}) => {
       .min(5, 'مقدار فیلد "گذرواژه" کوتاه میباشد.')
       .max(50, 'مقدار فیلد "گذرواژه" خیلی طولانی میباشد.')
       .required(' فیلد "گذرواژه" الزامی  میباشد.'),
-    confirmPassword:Yup.string()
-      .required(' فیلد "تکرار گذرواژه" الزامی  میباشد.')
-      .oneOf([Yup.ref('password'), null], 'مفدار "تکرار گذرواژه"  با مقدار "گذرواژه" یکی نمیباشد.')
   });
 
   return(
       <View style={Styles.root} >
+        <View style={Styles.headerView}>
+          <TouchableOpacity onPress={back}>
+            <IconBackArrow color='#000' width={heightScale(20)} height={heightScale(20)}/>
+          </TouchableOpacity>
+          <IconExclamation color='#000' width={heightScale(20)} height={heightScale(20)}/>
+        </View>
         <View>
-          <View style={Styles.headerView}>
-            <TouchableOpacity  onPress={back}>
-              <IconBackArrow color='#000' width={heightScale(20)} height={heightScale(20)}/>
-            </TouchableOpacity>
-            <IconExclamation color='#000' width={heightScale(20)} height={heightScale(20)}/>
+          <View style={[Styles.logoView, Styles.elevation]} >
+            <Logo color='#455CC7' width={sameSize(200)} height={sameSize(60) }/>
           </View>
           <Formik
             validateOnChange={false}
             validateOnBlur={false}
             validationSchema={SignupSchema}
-            initialValues={{ fullName:'' ,email: '' ,password:'' ,confirmPassword:'' }}
+            initialValues={{ email: '' ,password:'' }}
             onSubmit={values => handleSubmit(values)}
           >
             {({ errors, handleChange, handleBlur, handleSubmit, values }) => (
               <View style={Styles.form}>
-                <Text style={Styles.signInText}> ثبت نام</Text>
-                <TextInput
-                  style={Styles.textInput}
-                  onChangeText={handleChange('fullName')}
-                  onBlur={handleBlur('fullName')}
-                  value={values.fullName}
-                  placeholderTextColor='#333'
-                  placeholder='نام کامل'
-                />
-                {errors.fullName ? (
-                  <Text  style={Styles.errorText}>{errors.fullName}</Text>
-                ) : null}
-
                 <TextInput
                   style={Styles.textInput}
                   onChangeText={handleChange('email')}
@@ -196,36 +182,20 @@ export default ({navigation}) => {
                   <Text  style={Styles.errorText}>{errors.password}</Text>
                 ) : null}
 
-                <TextInput
-                  style={Styles.textInput}
-                  onChangeText={handleChange('confirmPassword')}
-                  onBlur={handleBlur('confirmPassword')}
-                  value={values.confirmPassword}
-                  placeholderTextColor='#333'
-                  placeholder='تکرار گذرواژه'
-                />
-                {errors.confirmPassword ? (
-                  <Text style={Styles.errorText}>{errors.confirmPassword}</Text>
-                ) : null}
                 <TouchableOpacity style={Styles.submit} onPress={()=>handleSubmit()}>
-                  <Text style={Styles.submitText}>ساخت اکانت جدید</Text>
+                  <Text style={Styles.submitText}>ورود</Text>
                 </TouchableOpacity>
               </View>
             )}
           </Formik>
-          <Text style={Styles.conditionText}>
-            به وسیله ثبت‌ نام تمامی
-            {'\n'}
-            <Linking style={Styles.link} title='شرایط' url='https://reactnative.dev/docs/linking?syntax=android' />
-             و
-            <Linking  style={Styles.link} title='قوانین'  url='https://github.com/crazycodeboy/react-native-splash-screen'/>
-            ما را میپذیرید.
+          <Text style={Styles.forgetPassword}>
+            فراموشی گذرواژه؟
           </Text>
         </View>
 
         <View style={Styles.bottomView}>
           <Pressable style={Styles.loginButton} onPress={SignUp}>
-            <Text style={Styles.loginText}>ورود</Text>
+            <Text style={Styles.loginText}>ثبت نام</Text>
           </Pressable>
         </View>
       </View>

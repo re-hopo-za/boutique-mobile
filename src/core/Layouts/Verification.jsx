@@ -6,8 +6,8 @@ import {
   View,
 } from "react-native";
 
-import { heightScale, isNumeric, sameSize } from "../../Tools/Functions";
-import { IconBackArrow, IconExclamation, IconRegistrationHome } from "../../Tools/Icons";
+import { heightScale, isNumeric, sameSize } from "../Tools/Functions";
+import { IconBackArrow, IconExclamation, IconRegistrationHome } from "../Tools/Icons";
 import { useRef, useState } from "react";
 
 

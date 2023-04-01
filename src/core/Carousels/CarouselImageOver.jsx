@@ -5,78 +5,40 @@ import {
   View,
 } from "react-native";
 
-import { numberToPersian, sameSize, separator, shadowStyle, windowWidth } from "../../Tools/Functions";
-import { useState } from "react";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { numberToPersian, sameSize, separator, shadowStyle, windowWidth } from "../Tools/Functions";
+import { GestureHandlerRootView ,ScrollView } from "react-native-gesture-handler";
 import Carousel from "react-native-reanimated-carousel/src/Carousel";
 import * as React from "react";
 
-import shoes_a from '../../../resources/images/temporary/shoes-1.png';
-import shoes_b from '../../../resources/images/temporary/shoes-2.png';
-import shoes_c from '../../../resources/images/temporary/shoes-3.png';
+import shoes_a from '../../resources/images/temporary/shoes-1.png';
+import shoes_b from '../../resources/images/temporary/shoes-2.png';
+import shoes_c from '../../resources/images/temporary/shoes-3.png';
 
-import ShowAll from "../../Components/ShowAll";
-
-
+import ShowAll from "../Components/ShowAll";
 
 
 
-export default () =>  {
+export default ({navigation ,title ,route ,endpoint ,items}) =>  {
 
-
-  const items = [
-    {
-      id:1,
-      title:'کفش مخصوص دویدن',
-      price:225000,
-      cats:['زنانه ورزشی'],
-      cover:shoes_a
-    },
-    {
-      id:2,
-      title:'کفش پیاده روی سارزی',
-      price:356000,
-      cats:['زنانه پیاده‌روی'],
-      cover:shoes_b
-    },
-    {
-      id:3,
-      title:'کفش پیاده روی سارزی',
-      price:955000,
-      cats:['زنانه مجلسی'],
-      cover:shoes_c
-    },
-    {
-      id:4,
-      title:'کفش پیاده روی سارزی',
-      price:955000,
-      cats:['زنانه مجلسی'],
-      cover:shoes_c
-    },
-  ];
 
 
   return (
+
     <View style={Styles.root}>
-      <ShowAll title='کفش زنانه' />
-      <GestureHandlerRootView style={{flex:1}}>
+      <ShowAll navigation={navigation} title={title} route={route} endpoint={endpoint} />
+
+      <GestureHandlerRootView>
         <Carousel
           width={(windowWidth /2.4)}
-          vertical={false}
           style={
             { width: windowWidth , ...Styles.carousel }
           }
-          mod='horizontal-stack'
           loop={true}
-          autoplayReverse={true}
-          autoPlayInterval={  100 }
           data={items}
-
-          scrollAnimationDuration={1000}
-          modeConfig={{
-            snapDirection:'right',
-            stackInterval:  8  ,
-          }}
+          scrollEnabled={true}
+          pagingEnabled={false}
+          scrollAnimationDuration={500}
+          enableSnap={true}
           customConfig={() => ({ type: "positive", viewCount :3 })}
           renderItem={( { index } ) => (
             <View style={Styles.carouselItem} >
@@ -91,7 +53,6 @@ export default () =>  {
             </View>
           )}
         />
-
       </GestureHandlerRootView>
     </View>
   );
@@ -107,8 +68,6 @@ const Styles = StyleSheet.create({
   },
   carousel:{
     marginTop:sameSize(10),
-    direction:'ltr',
-    alignItems:'flex-end',
     alignSelf:'flex-end'
   },
   carouselItem:{
@@ -116,11 +75,10 @@ const Styles = StyleSheet.create({
     overflow:'visible',
     marginTop:sameSize(10),
     position:'relative',
-    right:75
+    right:sameSize(77)
   },
   carouselView:{
     borderRadius:sameSize(12),
-    overflow:'visible',
     backgroundColor:'#fff',
     width:'80%',
     height:sameSize(180),

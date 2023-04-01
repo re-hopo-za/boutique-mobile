@@ -1,43 +1,42 @@
 import {
-  Image,
+  Image, ImageBackground,
   StyleSheet, Text, TouchableOpacity,
   View,
 } from "react-native";
 
-import { sameSize, textShadow, windowWidth } from "../../Tools/Functions";
+import { sameSize, shadowStyle, textShadow, windowWidth } from "../Tools/Functions";
 import { useState } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Carousel from "react-native-reanimated-carousel/src/Carousel";
 import * as React from "react";
 import Svg, { Circle } from "react-native-svg";
 
-import source_a from '../../../resources/images/temporary/main-slider-1.jpg';
-import source_b from '../../../resources/images/temporary/main-slider-2.jpg';
-import source_c from '../../../resources/images/temporary/main-slider-3.jpg';
+import source_a from '../../resources/images/temporary/main-slider-1.jpg';
+import source_b from '../../resources/images/temporary/main-slider-2.jpg';
+import source_c from '../../resources/images/temporary/main-slider-3.jpg';
 import LinearGradient from "react-native-linear-gradient";
 
 
 
 
 
-export default ( ) =>  {
-
+export default ({navigation ,route }) =>  {
   const [activeSlide ,setActiveSlide]  = useState(0);
 
   const items = [
     {
-      id:1,
+      id:0,
       title:'تونیک زنانه السانا مدل دلبر ',
       off:'۵',
       cover:source_b
     },
     {
-      id:2,
+      id:1,
       title:'مانتو زنانه السانا مدل ماهسین',
       off:'۲۰',
       cover:source_a
     },    {
-      id:3,
+      id:2,
       title:'مانتو زنانه آرپو مدل پرنسس',
       off:'۳۵',
       cover:source_c
@@ -47,44 +46,43 @@ export default ( ) =>  {
 
   return (
     <View style={Styles.root}>
-      <GestureHandlerRootView>
+      <GestureHandlerRootView style={{flex:1}} >
         <Carousel
+          scrollEnabled={false}
           style={Styles.carousel}
           panGestureHandlerProps={{
             activeOffsetX: [-10, 10],
           }}
-          width={(windowWidth ) }
+          width={windowWidth }
           data={items}
+          pagingEnabled={false}
+          snapEnabled={true}
           autoPlay={false}
-          onSnapToItem={(index) => setActiveSlide(index)}
+          onSnapToItem={(index) => setActiveSlide(items[index].id)}
           scrollAnimationDuration={1000}
+          windowSize={10}
           renderItem={( { index } ) => (
             <View style={Styles.carouselView} >
               <View style={Styles.carouselItem}>
-                <LinearGradient style={Styles.carouselItem} colors={['#2c2c2c' ,'#262626' ,'#212121' ,'#1b1b1b' ,'#161616' ]}>
-                  <Image style={Styles.carouselImage} source={items[index]?.cover} />
-                </LinearGradient>
+                <ImageBackground style={Styles.carouselItem} imageStyle={Styles.carouselImage}  source={items[index]?.cover}>
+                  <View style={Styles.carouselDetailsTop}>
+                    <Text style={Styles.carouselOff}>%{items[index]?.off }</Text>
+                    <Text style={Styles.carouselTitle}>{items[index]?.title } </Text>
+                     <TouchableOpacity style={Styles.carouselButton}>
+                      <Text style={Styles.carouselText}>خریدن</Text>
+                    </TouchableOpacity>
+                  </View>
+                </ImageBackground>
               </View>
             </View>
           )}
         />
         <View style={Styles.carouselDetails}>
-          <View style={Styles.carouselDetailsTop}>
-            <Text style={Styles.carouselOff}>%{items[activeSlide]?.off }</Text>
-            <Text style={Styles.carouselTitle}>{items[activeSlide]?.title } </Text>
-            <LinearGradient style={Styles.carouselButtonGradiant} colors={[  '#455cc7', '#5c70d5', '#7284e3', '#8799f1','#9daeff' ]}>
-              <TouchableOpacity >
-                <Text style={Styles.carouselText}>خریدن</Text>
-              </TouchableOpacity>
-            </LinearGradient>
-          </View>
-          <View style={Styles.dotsView}>
-            <Svg width={100} height={40} viewBox="0 0 140 200" >
-              { items.map( (item ,key) =>(
-                <Circle key={key} fill={key === activeSlide ? '#455CC7' :'#fff'}  cx={ (key+1)*90} cy={30} r={30} />
-              ))}
-            </Svg>
-          </View>
+          <Svg width={100} height={40} viewBox="0 0 140 200" >
+            { items.map( (item ,key) =>(
+              <Circle key={key} fill={key === activeSlide ? '#455CC7' :'#fff'}  cx={ (key+1)*90} cy={30} r={30} />
+            ))}
+          </Svg>
         </View>
       </GestureHandlerRootView>
     </View>
@@ -98,12 +96,11 @@ const Styles = StyleSheet.create({
     height:sameSize(280),
   },
   carousel:{
-    marginTop:sameSize(28)
+    marginTop:sameSize(20)
   },
   carouselView:{
     height:sameSize(230),
     paddingHorizontal:sameSize(20),
-
   },
   carouselItem:{
     borderRadius:sameSize(12),
@@ -114,19 +111,19 @@ const Styles = StyleSheet.create({
     backgroundColor:'#000',
   },
   carouselDetails:{
-    marginTop:sameSize(28),
-    justifyContent:'space-between',
+    justifyContent:'center',
     right:sameSize(20),
     position:'absolute',
-    height:sameSize(230),
     borderRadius:sameSize(12),
     paddingRight:sameSize(15),
-    alignItems:'flex-end',
+    alignItems:'center',
+    bottom:sameSize(20),
   },
   carouselDetailsTop:{
     alignSelf:'flex-end',
     justifyContent:'space-between',
     alignItems:'flex-end',
+    paddingRight:sameSize(15),
   },
   carouselImage:{
     flex:1,
@@ -139,8 +136,9 @@ const Styles = StyleSheet.create({
   carouselOff:{
     fontSize:27,
     fontFamily:'AzarMehr-Bold',
-    color:'#9DAEFF',
-    paddingTop:sameSize(10)
+    color:'#455CC7',
+    paddingTop:sameSize(10),
+    ...textShadow('#000')
   },
   carouselTitle:{
     fontSize:15,
@@ -151,11 +149,12 @@ const Styles = StyleSheet.create({
     width:sameSize(100),
     ...textShadow(),
   },
-  carouselButtonGradiant:{
+  carouselButton:{
     paddingHorizontal:sameSize(20),
     paddingVertical:sameSize(5),
     borderRadius:sameSize(12),
-    marginTop:sameSize(15)
+    marginTop:sameSize(15),
+    backgroundColor:'#455CC7'
   },
   carouselText:{
     fontSize:13,

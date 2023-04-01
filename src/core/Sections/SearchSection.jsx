@@ -22,7 +22,7 @@ export default () =>  {
     <View style={Styles.root}>
       <View style={Styles.searchView}>
         <TouchableOpacity onPress={handleSearch}>
-          <IconSearch width={sameSize(27)} height={sameSize(27)} />
+          <IconSearch width={sameSize(24)} height={sameSize(24)} />
         </TouchableOpacity>
         <TextInput style={Styles.searchInput} placeholder='جستجو...' onChangeText={(val) => setKeywords( val ) }/>
       </View>
@@ -43,7 +43,7 @@ const Styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems:'center',
-    height:sameSize(55),
+    height:sameSize(50),
     borderRadius:sameSize(12),
     backgroundColor:'#FFF',
     paddingLeft:sameSize(12),
